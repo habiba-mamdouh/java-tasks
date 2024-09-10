@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>The every() Method</h2>
+<p>checks if all array values pass a test</p>
+
+<p id="demo"></p>
+
+<script>
+const numbers = [28, 2, 0, 6, 200];
+let allOver18 = numbers.every(myFunction);
+
+document.getElementById("demo").innerHTML = "All over 18 is " + allOver18;
+
+function myFunction(value) {
+  return value > 18;
+}
+</script>
+
+</body>
+</html>

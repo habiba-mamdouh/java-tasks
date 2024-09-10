@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image and Font Color</title>
+
+    <style>
+        .image-container img {
+            width: 300px;
+            height: auto;
+            border-width: 5px;
+            border-style: solid;
+        }
+        .text-container {
+            font-size: 20px;
+            margin: 10px;
+        }
+    </style>
+
+</head>
+<body>
+    <h2>Enter Image and Text Color</h2>
+    
+    <label for="imageName">Enter image URL:</label><br>
+    <input type="text" id="imageName"><br><br>
+    
+    <label for="fontColor">Enter font color name:</label><br>
+    <input type="text" id="fontColor"><br><br>
+    
+    <button onclick="displayImageAndText()">Display</button>
+    
+    <div class="result">
+        <div class="text-container" id="textDisplay"></div>
+        <div class="image-container" id="imageDisplay"></div>
+    </div>
+
+    <script>
+        function displayImageAndText() {
+            const imageName = document.getElementById('imageName').value;
+            const fontColor = document.getElementById('fontColor').value;
+            
+            const textElement = document.getElementById('textDisplay');
+            textElement.style.color = fontColor;
+            textElement.innerHTML = `This is your selected text color: ${fontColor}`;
+            
+            const imageElement = document.getElementById('imageDisplay');
+            imageElement.innerHTML = `<img src="${imageName}" alt="User Image" style="border-color:${fontColor};">`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Form</title>
+    <style>
+        body {
+            font-family: Arial;
+        }
+        .container {
+            width: 300px;
+            margin: 0px auto;
+        }
+        label, input {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .error {
+            color: red;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Sign Up Form</h2>
+        
+        <form id="signUpForm" onsubmit="return validateForm()">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username">
+            <div class="error" id="usernameError"></div>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+            <div class="error" id="passwordError"></div>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+            <div class="error" id="emailError"></div>
+
+            <label for="mobile">Mobile:</label>
+            <input type="text" id="mobile" name="mobile">
+            <div class="error" id="mobileError"></div>
+
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+
+    <script>
+        function validateForm() {
+            let isValid = true;
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const email = document.getElementById('email').value;
+            const mobile = document.getElementById('mobile').value;
+
+            const usernameRegex = /^[a-zA-Z0-9]{4,12}$/;
+            if (!usernameRegex.test(username)) {
+                document.getElementById('usernameError').innerText = "Username must be 4-12 alphanumeric characters.";
+                isValid = false;
+            }
+
+            const passwordRegex = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
+            if (!passwordRegex.test(password)) {
+                document.getElementById('passwordError').innerText = "Password must be at least 8 characters with 1 uppercase letter and 1 number.";
+                isValid = false;
+            }
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                document.getElementById('emailError').innerText = "Please enter a valid email address.";
+                isValid = false;
+            }
+
+            const mobileRegex = /^\d{10,15}$/;
+            if (!mobileRegex.test(mobile)) {
+                document.getElementById('mobileError').innerText = "Mobile number must be 10-15 digits.";
+                isValid = false;
+            }
+
+            return isValid;
+        }
+    </script>
+</body>
+</html>

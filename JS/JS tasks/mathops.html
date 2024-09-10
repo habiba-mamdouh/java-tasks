@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematical operations</title>
+   
+</head>
+<body>
+    <div class="container">
+        <h2>Adding - Multiplying - and Dividing 3 numbers</h2>
+        
+        <label for="num1">Enter first number:</label>
+        <input type="number" id="num1" step="any"><br><br>
+        
+        <label for="num2">Enter second number:</label>
+        <input type="number" id="num2" step="any"><br><br>
+        
+        <label for="num3">Enter third number:</label>
+        <input type="number" id="num3" step="any"><br><br>
+        
+        <button onclick="calculate()">Calculate</button>
+        
+        <div class="result" id="output"></div>
+    </div>
+
+    <script>
+        function calculate() {
+            let numbers = [];
+            numbers[0] = parseFloat(document.getElementById('num1').value);
+            numbers[1] = parseFloat(document.getElementById('num2').value);
+            numbers[2] = parseFloat(document.getElementById('num3').value);
+
+            let sum = numbers[0] + numbers[1] + numbers[2];
+            let product = numbers[0] * numbers[1] * numbers[2];
+            let division = numbers[0] / numbers[1] / numbers[2];
+
+            let output = `
+                <p>Sum of the 3 numbers: ${numbers[0]} + ${numbers[1]} + ${numbers[2]} = ${sum}</p>
+                <p>Multiplication of the 3 numbers: ${numbers[0]} * ${numbers[1]} * ${numbers[2]} = ${product}</p>
+                <p>Division of the 3 numbers: ${numbers[0]} / ${numbers[1]} / ${numbers[2]} = ${division}</p>
+            `;
+            document.getElementById('output').innerHTML = output;
+        }
+    </script>
+</body>
+</html>

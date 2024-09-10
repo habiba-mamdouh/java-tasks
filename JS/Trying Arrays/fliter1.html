@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>filter() Method</h2>
+<p>create array that displays condition: over 18 elements</p>
+
+<p id="demo"></p>
+
+<script>
+const numbers = [215, 4, 9, 10, 46, 1051];
+const over18 = numbers.filter(myFunction);
+
+document.getElementById("demo").innerHTML = over18;
+
+function myFunction(value, index, array) {
+  return value > 18;
+}
+</script>
+
+</body>
+</html>

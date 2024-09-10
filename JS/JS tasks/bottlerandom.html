@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bottle Game</title>
+   
+</head>
+<body>
+
+    <h1>Bottle Game</h1>
+    <p>Enter names</p>
+    <input type="text" id="namesInput" placeholder="ahmed, islam, sandra, Fatma, Ali">
+    <br>
+    <button onclick="getRandomNames()">Get Random Names</button>
+
+    <div class="result" id="result"></div>
+
+    <script>
+        function getRandomNames() {
+            //putting input values and output values(names) in 2 diff arrays
+            let input = document.getElementById("namesInput").value;
+            let names = input.split(',').map(name => name.trim());
+
+            //checking if there`s at least 2 values(names)
+            if (names.length < 2) {
+                document.getElementById("result").innerText = "Please enter at least two names.";
+                return;
+            }
+
+            //select two random values(names)
+            let randomIndex1 = Math.floor(Math.random() * names.length);
+            let randomIndex2;
+            do {
+                randomIndex2 = Math.floor(Math.random() * names.length);
+            } while (randomIndex2 === randomIndex1);
+
+            let randomNames = [names[randomIndex1], names[randomIndex2]];
+
+            // display the output
+            document.getElementById("result").innerText = "Selected Names: " + randomNames.join(", ");
+        }
+    </script>
+
+</body>
+</html>

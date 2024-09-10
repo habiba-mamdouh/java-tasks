@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>The reduce() Method</h2>
+<p>sum all numbers in an array:</p>
+
+<p id="demo"></p>
+
+<script>
+const numbers = [80, 0, 4, 17, 33];
+let sum = numbers.reduce(myFunction, 100);
+
+document.getElementById("demo").innerHTML = "The sum is " + sum;
+
+function myFunction(total, value) {
+  return total + value;
+}
+</script>
+
+</body>
+</html>

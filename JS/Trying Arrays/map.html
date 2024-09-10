@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>The map() Method</h2>
+<p>Create a new array by performing a function on each array element:</p>
+
+<p id="demo"></p>
+
+<script>
+const numbers1 = [5, 14, 90, 6, 22];
+const numbers2 = numbers1.map(myFunction);
+
+document.getElementById("demo").innerHTML = numbers2;
+
+function myFunction(value) {
+  return value * 4;
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>The find() Method</h2>
+<p id="demo"></p>
+
+<script>
+const numbers = [5, 17, 25, 30, 9];
+let first = numbers.find(myFunction);
+
+document.getElementById("demo").innerHTML = "First number over 10 is " + first;
+
+function myFunction(value, index, array) {
+  return value > 10;
+}
+</script>
+
+</body>
+</html>

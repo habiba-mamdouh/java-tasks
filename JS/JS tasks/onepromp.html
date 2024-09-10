@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Array Input Example</title>
+  <script>
+    // Function to handle the OK button click
+    function handleOk() {
+      const input = document.getElementById('arrayInput').value;
+      const arrayValues = input.split(',').map(Number); // Split the input by commas and convert to numbers
+      alert('Array entered: ' + arrayValues);
+      console.log(arrayValues); // You can handle the array as needed
+    }
+
+    // Function to handle the Cancel button click
+    function handleCancel() {
+      document.getElementById('arrayInput').value = ''; // Reset the input field
+    }
+  </script>
+</head>
+<body>
+  <h1>Enter Array Values</h1>
+  <label for="arrayInput">Array values (comma separated):</label>
+  <input type="text" id="arrayInput" placeholder="e.g. 2,6,9,3"><br><br>
+  <button onclick="handleOk()">OK</button>
+  <button onclick="handleCancel()">Cancel</button>
+</body>
+</html>

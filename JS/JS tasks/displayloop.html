@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>display loop</title>
+</head>
+
+<body>
+
+    <style>
+        .error {
+            color: green;
+        }
+
+        table {
+            margin-bottom: 5px;
+        }
+    </style>
+    </head>
+
+    <body>
+        <h4> Enter 5 numbers(values) and show errorMessage with  the repeated numbers with row number </h4>
+        <h3>Enter 5 numbers</h3>
+
+        <table border="1">
+            <tr>
+                <th>Values</th>
+            </tr>
+            <tr>
+                <td><input type="text" id="value1"></td>
+            </tr>
+            <tr>
+                <td><input type="text" id="value2"></td>
+            </tr>
+            <tr>
+                <td><input type="text" id="value3"></td>
+            </tr>
+            <tr>
+                <td><input type="text" id="value4"></td>
+            </tr>
+            <tr>
+                <td><input type="text" id="value5"></td>
+            </tr>
+        </table>
+
+        <button onclick="checkForRepeats()">Check for Repeated Values</button>
+        <p id="errorMessage" class="error"></p>
+
+        <script>
+
+function checkForRepeats() {
+    let values = [];
+    let errorMessage = "";
+    let rows = document.querySelectorAll('input[type="text"]');
+
+    rows.forEach((input, index) => {
+        let value = input.value;
+        if (values.includes(value)) {
+            // Find the first occurrence of the repeated value
+            let firstOccurrence = values.indexOf(value) + 1;
+            let currentRow = index + 1;
+            errorMessage += `Repeated value "${value}" at row ${firstOccurrence} and row ${currentRow}<br>`;
+        } else {
+            values.push(value);
+        }
+    });
+
+    document.getElementById("errorMessage").innerHTML = errorMessage || "No repeated values.";
+}
+
+
+        </script>
+    </body>
+
+</html>
